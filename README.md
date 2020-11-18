@@ -1,3 +1,4 @@
 # WBModel
 
-Model for ASF spread through WB Populations
+Model for ASF spread through WB Populations.
+Using branches
