@@ -1211,11 +1211,11 @@ WBModel <- function( MaxIterations    = 10,
 HC3 = c(0.75, 0.20, 0.05)
 HC2 = c(0.75,0.25)
 
-Scenarios <- data.frame(Sc = c(1:4),
-                        ProbHarvest   = c(rep(0, 2),   rep(0.40, 2)),
-                        ProbHarvestAM = c(rep(0, 2),    rep(0.60, 2)),
-                        ProbMovHunt   = c(rep(0, 2),    rep(0.30, 2)),
-                        GroupMoveHunt = c(rep("No", 2), rep("Yes", 2))
+Scenarios <- data.frame(Sc = c(1:2),
+                        ProbHarvest   = c(0,  0.40),
+                        ProbHarvestAM = c(0,  0.60),
+                        ProbMovHunt   = c(0,  0.30),
+                        GroupMoveHunt = c("No", "Yes")
                         )
 
 
@@ -1253,10 +1253,6 @@ foreach (i = c(1:4), .export = c('HC2','HC3'), .packages = c("dplyr","flux"))  %
           HabitatProb = HabitatProb,
           runID = paste0(path,"/", i)
   )
-  if (i %in% c(1,3)) FileWildBoarMat = "Inputs/EA_9km/Input_EA9.csv" else
-    FileWildBoarMat = "Inputs/DEPA64/Input_dep64.cvs"
-  if (i %in% c(1, 3)) runID = paste0("WB_Model", "France_Belgium") else
-    runID = paste0("WB_Model", "Dep64")
   
 }
 
